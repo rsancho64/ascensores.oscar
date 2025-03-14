@@ -27,3 +27,12 @@ con:
 - configuracion de parametros en la generacion de eventos en las colas
 - 
 
+
+
+## notas v0:
+
+Es una base funcional pero simple. Los ascensores se mueven en una dirección fija (por implementar lógica más compleja).
+Falta la generación de eventos en las colas (se puede añadir en una versión futura).
+El dashboard gráfico es básico pero permite control inicial.
+Cada clase tiene su propio manejador (métodos como move, add_person, etc.).
+
