@@ -1,6 +1,9 @@
+#! /usr/bin/python3
+ 
 from building import Building
 
 class CLISimulator:
+
     def __init__(self, num_floors=5, num_elevators=1, elevator_capacity=5):
         self.building = Building(num_floors, num_elevators, elevator_capacity)
 
@@ -12,4 +15,9 @@ class CLISimulator:
             elif command == "status":
                 print(self.building.get_status())
             elif command == "exit":
-                break
+                breakif __name__ == "__main__":
+
+if __name__ == "__main__":
+
+    simulator = CLISimulator()
+    simulator.run()

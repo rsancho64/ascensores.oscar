@@ -1,4 +1,7 @@
+#! /usr/bin/python3
+ 
 class Building:
+
     def __init__(self, num_floors, num_elevators, elevator_capacity):
         self.floors = [Floor(i) for i in range(num_floors)]
         self.elevators = [Elevator(i, elevator_capacity, num_floors) for i in range(num_elevators)]
@@ -14,4 +17,16 @@ class Building:
         status = {"time": self.time}
         status["elevators"] = [e.get_status() for e in self.elevators]
         status["floors"] = [f.get_status() for f in self.floors]
-        return status
+        return statusif __name__ == "__main__":
+
+if __name__ == "__main__":
+
+    building = Building(5, 1, 5)
+    print(building.get_status())
+
+    building.run_simulation()
+    print(building.get_status())
+
+    building.run_simulation()
+    print(building.get_status())
+

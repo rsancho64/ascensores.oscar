@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+ 
 import tkinter as tk
 from building import Building
 
@@ -55,4 +57,10 @@ class GUISimulator:
     def show_status(self):
         self.status_text.delete(1.0, tk.END)
         status = self.building.get_status()
-        self.status_text.insert(tk.END, str(status))
+        self.status_text.insert(tk.END, str(status))if __name__ == "__main__":
+
+if __name__ == "__main__":
+
+    root = tk.Tk()
+    app = GUISimulator(root)
+    root.mainloop()
