@@ -6,6 +6,7 @@ def mostrar_menu():
     print("2. Agregar Persona")
     print("3. Iniciar Simulación")
     print("4. Salir de la simulación")
+    print("5. Mostrar información del edificio")  
 
 def main():
     edificio = None
@@ -42,6 +43,10 @@ def main():
         
         elif opcion == "3" and edificio:
             edificio.mostrar_estado()
+
+        elif opcion == "5" and edificio:  
+            print(f"Edificio con {edificio.num_plantas} plantas y {len(edificio.ascensores)} ascensores.")
+            print("Capacidad por ascensor:", edificio.capacidad)
         
         elif opcion == "4":
             print("Saliendo...")
@@ -52,3 +57,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

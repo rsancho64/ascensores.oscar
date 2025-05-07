@@ -27,6 +27,9 @@ class AscensorApp:
         
         self.btn_reparar = tk.Button(root, text="Reparar Ascensor", command=self.reparar_ascensor)
         self.btn_reparar.pack(pady=5)
+
+        self.btn_info_edificio = tk.Button(root, text="Mostrar Info del Edificio", command=self.mostrar_info_edificio)
+        self.btn_info_edificio.pack(pady=5)
         
         self.info_label = tk.Label(root, text="", font=("Arial", 12), fg="blue")
         self.info_label.pack(pady=10)
@@ -85,7 +88,7 @@ class AscensorApp:
             messagebox.showwarning("Fallo", f"El Ascensor {ascensor_averiado.id} se ha averiado!")
         
         for ascensor in self.edificio.ascensores:
-            for persona in ascensor.ocupantes:
+            for persona in ascensor.ocupantes[:]:
                 self.text_estado.insert(tk.END, f"Persona {persona.id} subiendo en Ascensor {ascensor.id}...\n")
                 self.root.update()
                 time.sleep(1)
@@ -110,7 +113,20 @@ class AscensorApp:
         else:
             messagebox.showerror("Error", "ID de ascensor no válido.")
 
+    def mostrar_info_edificio(self):
+        if not self.edificio:
+            messagebox.showerror("Error", "Primero configura el edificio.")
+            return
+        
+        info = (
+            f"Plantas: {self.edificio.num_plantas}\n"
+            f"Ascensores: {len(self.edificio.ascensores)}\n"
+            f"Capacidad por ascensor: {self.edificio.capacidad} kg"
+        )
+        messagebox.showinfo("Información del Edificio", info)
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = AscensorApp(root)
     root.mainloop()
+
